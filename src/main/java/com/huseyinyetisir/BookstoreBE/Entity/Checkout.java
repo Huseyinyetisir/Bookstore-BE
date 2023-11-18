@@ -1,11 +1,11 @@
 package com.huseyinyetisir.BookstoreBE.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
@@ -13,15 +13,15 @@ import lombok.Data;
 @Data
 public class Checkout {
 
-    public Checkout(){}
+    public Checkout() {
+    }
 
-    public Checkout(String userEmail, String checkoutDate, String returnDate, Long bookId){
+    public Checkout(String userEmail, String checkoutDate, String returnDate, Long bookId) {
         this.userEmail = userEmail;
         this.checkoutDate = checkoutDate;
         this.returnDate = returnDate;
         this.bookId = bookId;
     };
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +36,8 @@ public class Checkout {
 
     @Column(name = "return_date")
     private String returnDate;
-    
+
     @Column(name = "book_id")
     private Long bookId;
 
-    
 }

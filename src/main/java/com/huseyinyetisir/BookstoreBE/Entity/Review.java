@@ -1,7 +1,6 @@
 package com.huseyinyetisir.BookstoreBE.Entity;
 
-
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
