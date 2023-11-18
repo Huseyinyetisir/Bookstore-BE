@@ -17,6 +17,8 @@ public class BookController {
 
     private BookService bookService;
 
+    private String userEmail = "testuser@email.com";
+
     @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
@@ -24,14 +26,19 @@ public class BookController {
 
     @GetMapping("/secure/ischeckedout/byuser")
     public Boolean checkoutBookByUser(@RequestParam Long bookId) {
-        String userEmail = "testuser@email.com";
+
         return bookService.checkoutBookByUser(userEmail, bookId);
     }
 
     @GetMapping("/secure/checkout")
     public Book checkoutBook(@RequestParam Long bookId) throws Exception {
-        String userEmail = "testuser@email.com";
         return bookService.checkoutBook(userEmail, bookId);
 
     }
+
+    @GetMapping("/secure/currentloans/count")
+    public int currentloansCount(@RequestParam Long bookId) {
+        return bookService.currentLoansCount(userEmail, bookId);
+    }
+
 }
