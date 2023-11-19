@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.huseyinyetisir.BookstoreBE.Entity.Checkout;
+import com.huseyinyetisir.BookstoreBE.entity.Checkout;
 
 public interface CheckoutRepository extends JpaRepository<Checkout, Long> {
 

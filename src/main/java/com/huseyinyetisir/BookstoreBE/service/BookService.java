@@ -6,10 +6,10 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.huseyinyetisir.BookstoreBE.Entity.Book;
-import com.huseyinyetisir.BookstoreBE.Entity.Checkout;
 import com.huseyinyetisir.BookstoreBE.dao.BookRepository;
 import com.huseyinyetisir.BookstoreBE.dao.CheckoutRepository;
+import com.huseyinyetisir.BookstoreBE.entity.Book;
+import com.huseyinyetisir.BookstoreBE.entity.Checkout;
 
 @Service
 @Transactional
@@ -57,7 +57,7 @@ public class BookService {
         }
     }
 
-    public int currentLoansCount(String userEmail, Long bookId) {
+    public int currentLoansCount(String userEmail) {
         return checkoutRepository.findBooksByUserEmail(userEmail).size();
     }
 

@@ -1,4 +1,4 @@
-package com.huseyinyetisir.BookstoreBE.Entity;
+package com.huseyinyetisir.BookstoreBE.entity;
 
 import javax.persistence.*;
 import lombok.Data;
