@@ -2,6 +2,7 @@ package com.huseyinyetisir.BookstoreBE.controller;
 
 import com.huseyinyetisir.BookstoreBE.entity.Book;
 import com.huseyinyetisir.BookstoreBE.service.BookService;
+import com.huseyinyetisir.BookstoreBE.utils.ExtractJWT;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,28 +19,29 @@ public class BookController {
 
     private BookService bookService;
 
-    private String userEmail = "testuser@email.com";
-
     @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @GetMapping("/secure/ischeckedout/byuser")
-    public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token, @RequestParam Long bookId) {
-
+    public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token,
+            @RequestParam Long bookId) {
+        String userEmail = ExtractJWT.payloadJWTExtraction(token);
         return bookService.checkoutBookByUser(userEmail, bookId);
     }
 
     @GetMapping("/secure/checkout")
-    public Book checkoutBook(@RequestHeader(value = "Authorization") String token, @RequestParam Long bookId)
-            throws Exception {
+    public Book checkoutBook(@RequestHeader(value = "Authorization") String token,
+            @RequestParam Long bookId) throws Exception {
+        String userEmail = ExtractJWT.payloadJWTExtraction(token);
         return bookService.checkoutBook(userEmail, bookId);
 
     }
 
     @GetMapping("/secure/currentloans/count")
     public int currentloansCount(@RequestHeader(value = "Authorization") String token) {
+        String userEmail = ExtractJWT.payloadJWTExtraction(token);
         return bookService.currentLoansCount(userEmail);
     }
 
