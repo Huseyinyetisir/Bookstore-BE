@@ -40,7 +40,7 @@ public class BookController {
     }
 
     @GetMapping("/secure/currentloans/count")
-    public int currentloansCount(@RequestHeader(value = "Authorization") String token) {
+    public int currentLoansCount(@RequestHeader(value = "Authorization") String token) {
         String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         return bookService.currentLoansCount(userEmail);
     }

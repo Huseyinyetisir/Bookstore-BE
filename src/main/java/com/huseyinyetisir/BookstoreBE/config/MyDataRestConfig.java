@@ -12,25 +12,26 @@ import com.huseyinyetisir.BookstoreBE.entity.Review;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
-        private String theAllowedOrigin = "http://localhost:3000";
+        private String theAllowedOrigins = "http://localhost:3000";
 
         @Override
-        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-
+        public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config,
+                        CorsRegistry cors) {
                 HttpMethod[] theUnsupportedActions = {
-                                HttpMethod.PUT,
                                 HttpMethod.POST,
-                                HttpMethod.DELETE,
                                 HttpMethod.PATCH,
+                                HttpMethod.DELETE,
+                                HttpMethod.PUT };
 
-                };
                 config.exposeIdsFor(Book.class);
                 config.exposeIdsFor(Review.class);
 
                 disableHttpMethods(Book.class, config, theUnsupportedActions);
                 disableHttpMethods(Review.class, config, theUnsupportedActions);
+
+                /* Configure CORS Mapping */
                 cors.addMapping(config.getBasePath() + "/**")
-                                .allowedOrigins(theAllowedOrigin);
+                                .allowedOrigins(theAllowedOrigins);
         }
 
         private void disableHttpMethods(Class theClass,
@@ -42,5 +43,4 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                                 .withCollectionExposure(
                                                 (metdata, httpMethods) -> httpMethods.disable(theUnsupportedActions));
         }
-
 }
