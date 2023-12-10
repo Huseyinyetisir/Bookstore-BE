@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.huseyinyetisir.BookstoreBE.dao.BookRepository;
 import com.huseyinyetisir.BookstoreBE.dao.ReviewRepository;
-import com.huseyinyetisir.BookstoreBE.dto.ReviewRequestDto;
+import com.huseyinyetisir.BookstoreBE.dto.requestDto.ReviewRequestDto;
 import com.huseyinyetisir.BookstoreBE.entity.Review;
 
 @Service

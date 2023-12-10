@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.huseyinyetisir.BookstoreBE.dto.ReviewRequestDto;
+import com.huseyinyetisir.BookstoreBE.dto.requestDto.ReviewRequestDto;
 import com.huseyinyetisir.BookstoreBE.service.ReviewService;
 import com.huseyinyetisir.BookstoreBE.utils.ExtractJWT;
 

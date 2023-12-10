@@ -1,8 +1,10 @@
 package com.huseyinyetisir.BookstoreBE.entity;
 
 import javax.persistence.*;
-import lombok.Data;
+
 import org.hibernate.annotations.CreationTimestamp;
+
+import lombok.Data;
 
 import java.util.Date;
 

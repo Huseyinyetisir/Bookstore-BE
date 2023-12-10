@@ -1,4 +1,4 @@
-package com.huseyinyetisir.BookstoreBE.dto;
+package com.huseyinyetisir.BookstoreBE.dto.requestDto;
 
 import java.util.Optional;
 
