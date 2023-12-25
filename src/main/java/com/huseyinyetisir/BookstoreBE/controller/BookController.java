@@ -45,7 +45,6 @@ public class BookController {
             @RequestParam Long bookId) throws Exception {
         String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         return bookService.checkoutBook(userEmail, bookId);
-
     }
 
     @GetMapping("/secure/currentloans/count")
